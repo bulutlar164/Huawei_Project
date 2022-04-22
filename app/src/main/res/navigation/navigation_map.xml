@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_map"
+    app:startDestination="@id/singUpFragment">
+
+    <fragment
+        android:id="@+id/singUpFragment"
+        android:name="com.example.huwaei_ilkproje.singUpFragment"
+        android:label="fragment_sing_up"
+        tools:layout="@layout/fragment_sing_up" >
+        <action
+            android:id="@+id/action_singUpFragment_to_siparisDetay"
+            app:destination="@id/siparisDetay" />
+    </fragment>
+    <fragment
+        android:id="@+id/siparisDetay"
+        android:name="com.example.huwaei_ilkproje.siparisDetay"
+        android:label="fragment_siparis_detay"
+        tools:layout="@layout/fragment_siparis_detay" />
+</navigation>
