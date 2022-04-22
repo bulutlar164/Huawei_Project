@@ -37,10 +37,6 @@ class singUpFragment : Fragment() {
         val buttonKayit = view.findViewById<Button>(R.id.buttonKaydet)
         //
 
-        //Action
-        val action = singUpFragmentDirections.actionSingUpFragmentToSiparisDetay()
-
-        //
 
         buttonKayit.setOnClickListener(){
             //Check Ad
@@ -53,11 +49,13 @@ class singUpFragment : Fragment() {
                    if(emailValidator(textEmail.text.toString()))
                    {
                        //Check Sifre
-                       if(textSifre.text != null)
+                       if(textSifre.text.length >= 8)
                        {
                            //Check KVK
                            if(checkBoxKVK.isChecked)
                            {
+                               val AdSoyAd = "${textAd.text.toString()}  ${textSoyAd.text.toString()}"
+                               val action = singUpFragmentDirections.actionSingUpFragmentToSiparisDetay2(AdSoyAd,textEmail.text.toString())
                                findNavController().navigate(action)
 
                            }
@@ -69,13 +67,13 @@ class singUpFragment : Fragment() {
                        }
                        else
                        {
-                           Toast.makeText(activity,"Şifre Giriniz",Toast.LENGTH_SHORT).show()
+                           Toast.makeText(activity,"Şifreniz 8 karakter içermek zorundadır",Toast.LENGTH_SHORT).show()
                        }
 
                    }
                    else
                    {
-                       Toast.makeText(activity,"Email Giriniz",Toast.LENGTH_SHORT).show()
+                       Toast.makeText(activity,"Email icerisinde yalova.edu.tr geçmek zorundadır",Toast.LENGTH_SHORT).show()
                    }
 
                }
@@ -90,14 +88,7 @@ class singUpFragment : Fragment() {
                 Toast.makeText(activity,"Adınızı Giriniz",Toast.LENGTH_SHORT).show()
             }
         }
-
-
-
-
-
-
         return view
-
     }
 
     fun emailValidator(email: String?): Boolean {

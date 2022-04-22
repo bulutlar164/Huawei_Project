@@ -4,19 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_map"
     app:startDestination="@id/singUpFragment">
-
     <fragment
         android:id="@+id/singUpFragment"
         android:name="com.example.huwaei_ilkproje.singUpFragment"
         android:label="fragment_sing_up"
         tools:layout="@layout/fragment_sing_up" >
         <action
-            android:id="@+id/action_singUpFragment_to_siparisDetay"
-            app:destination="@id/siparisDetay" />
+            android:id="@+id/action_singUpFragment_to_siparisDetay2"
+            app:destination="@id/siparisDetay2" />
     </fragment>
     <fragment
-        android:id="@+id/siparisDetay"
+        android:id="@+id/siparisDetay2"
         android:name="com.example.huwaei_ilkproje.siparisDetay"
         android:label="fragment_siparis_detay"
-        tools:layout="@layout/fragment_siparis_detay" />
+        tools:layout="@layout/fragment_siparis_detay" >
+        <argument
+            android:name="adsoyad"
+            app:argType="string"
+            android:defaultValue="DefaultName" />
+        <argument
+            android:name="email"
+            app:argType="string"
+            android:defaultValue="DefaultEmail" />
+        <action
+            android:id="@+id/action_siparisDetay2_to_singUpFragment"
+            app:destination="@id/singUpFragment" />
+    </fragment>
 </navigation>
